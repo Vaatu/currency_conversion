@@ -40,7 +40,10 @@ class CurrencyRateTile extends StatelessWidget {
               )
             ],
           ),
-          Text("$rate $symbol",style: getBoldStyle(color: ColorManager.primary,fontSize: 16.sp),)
+          Text(
+            "$rate $symbol",
+            style: getBoldStyle(color: ColorManager.primary, fontSize: 16.sp),
+          )
         ],
       ),
     );

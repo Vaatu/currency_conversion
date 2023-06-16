@@ -9,7 +9,4 @@ class AppStrings {
   static const String exchangeRates = "Exchange Rates";
   static const String empty = "Empty";
   static const String emptyDesc = "Please fill-in fields to view the results";
-
-
-
 }

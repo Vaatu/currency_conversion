@@ -1,4 +1,3 @@
-
 class GetDailyHistoricalRatesInput {
   String startDate;
   String endDate;
@@ -6,6 +5,4 @@ class GetDailyHistoricalRatesInput {
   String symbol;
 
   GetDailyHistoricalRatesInput(this.startDate, this.endDate, this.baseCurrency, this.symbol);
-
-
 }

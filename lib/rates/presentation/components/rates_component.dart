@@ -29,8 +29,7 @@ class RatesComponent extends StatelessWidget {
         case RequestState.error:
           return const EmptyState();
         case RequestState.loading:
-          return const Center(child:  CircularProgressIndicator());
-
+          return const Center(child: CircularProgressIndicator());
       }
     });
   }

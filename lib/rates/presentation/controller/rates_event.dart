@@ -7,10 +7,10 @@ abstract class RatesEvent {
 class EmptyState extends RatesState {}
 
 class GetDailyHistoricalRatesEvent extends RatesEvent {
-      final String startDate;
-      final String endDate;
+  final String startDate;
+  final String endDate;
 
-      GetDailyHistoricalRatesEvent(this.startDate, this.endDate);
+  GetDailyHistoricalRatesEvent(this.startDate, this.endDate);
 }
 
 class GetSupportedSymbolsEvent extends RatesEvent {}
@@ -38,8 +38,3 @@ class SelectToCurrencyEvent extends RatesEvent {
 
   SelectToCurrencyEvent(this.to);
 }
-
-
-
-
-

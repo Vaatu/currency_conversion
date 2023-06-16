@@ -6,5 +6,4 @@ class Symbol {
     required this.description,
     required this.code,
   });
-
 }

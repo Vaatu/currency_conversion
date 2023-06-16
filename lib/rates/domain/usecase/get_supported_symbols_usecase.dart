@@ -5,8 +5,8 @@ class GetSupportedSymbolsUseCase {
   final BaseRatesRepository _baseRatesRepository;
 
   GetSupportedSymbolsUseCase(this._baseRatesRepository);
-  Future<Map<String, Symbol>> call()async{
-    return await _baseRatesRepository.getSupportedSymbols();
 
+  Future<Map<String, Symbol>> call() async {
+    return await _baseRatesRepository.getSupportedSymbols();
   }
 }

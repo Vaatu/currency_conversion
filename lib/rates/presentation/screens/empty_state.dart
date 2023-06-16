@@ -10,14 +10,24 @@ class EmptyState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
+    return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.asset(ImageAssets.emptyState),
-        SizedBox(height: 20.h,),
-        Text(AppStrings.empty,style: getBoldStyle(color: ColorManager.grey1),),
-        SizedBox(height: 5.h,),
-        Text(AppStrings.emptyDesc,style: getBoldStyle(color: ColorManager.lightGrey),),
+        SizedBox(
+          height: 20.h,
+        ),
+        Text(
+          AppStrings.empty,
+          style: getBoldStyle(color: ColorManager.grey1),
+        ),
+        SizedBox(
+          height: 5.h,
+        ),
+        Text(
+          AppStrings.emptyDesc,
+          style: getBoldStyle(color: ColorManager.lightGrey),
+        ),
       ],
     );
   }

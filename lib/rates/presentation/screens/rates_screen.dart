@@ -25,7 +25,7 @@ class RatesScreen extends StatelessWidget {
         create: (BuildContext context) => sl<RatesBloc>()..add(GetSupportedSymbolsEvent()),
         child: BlocBuilder<RatesBloc, RatesState>(
           builder: (context, state) {
-            if(state.requestState == RequestState.error){
+            if (state.requestState == RequestState.error) {
               Fluttertoast.showToast(
                   msg: "End date mustn't be before start date",
                   toastLength: Toast.LENGTH_SHORT,
@@ -33,8 +33,7 @@ class RatesScreen extends StatelessWidget {
                   timeInSecForIosWeb: 1,
                   backgroundColor: Colors.red,
                   textColor: Colors.white,
-                  fontSize: 16.0
-              );
+                  fontSize: 16.0);
             }
             return Scaffold(
               extendBodyBehindAppBar: true,
@@ -158,7 +157,6 @@ class RatesScreen extends StatelessWidget {
                                         borderRadius: BorderRadius.circular(16.sp),
                                         onChanged: (val) {
                                           context.read<RatesBloc>().add(SelectToCurrencyEvent(val!));
-
                                         },
                                         hint: Text(AppStrings.to, style: getMediumStyle(color: ColorManager.darkWhite)),
                                         underline: const SizedBox(),
@@ -205,7 +203,6 @@ class RatesScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(28.r), topRight: Radius.circular(28.r))),
                               width: double.infinity,
-                              // child: const EmptyState(),
                               child: const RatesComponent()),
                         )
                       ],

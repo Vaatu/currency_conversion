@@ -4,7 +4,6 @@ import 'package:currency_conversion/rates/domain/entity/get_daily_historical_rat
 import 'package:currency_conversion/rates/domain/repository/base_rates_repository.dart';
 import 'package:currency_conversion/rates/domain/entity/symbols.dart';
 
-
 class RatesRepositoryImpl implements BaseRatesRepository {
   final BaseRemoteDatasource _baseRemoteDatasource;
 
@@ -16,7 +15,7 @@ class RatesRepositoryImpl implements BaseRatesRepository {
   }
 
   @override
-  Future<Map<String, Symbol>> getSupportedSymbols() async{
+  Future<Map<String, Symbol>> getSupportedSymbols() async {
     return await _baseRemoteDatasource.getSupportedSymbols();
   }
 }

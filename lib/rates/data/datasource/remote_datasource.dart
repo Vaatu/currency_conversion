@@ -16,8 +16,7 @@ class RemoteDataSourceImpl implements BaseRemoteDatasource {
   Future<CurrencyRatesModel> getDailyHistoricalRates(GetDailyHistoricalRatesInput input) async {
     try {
       final response = await Dio().get(
-          "${AppConstants.baseUrl}timeseries?start_date=${input.startDate}&end_date=${input.endDate}&base=${input
-              .baseCurrency}&symbols=${input.symbol}");
+          "${AppConstants.baseUrl}timeseries?start_date=${input.startDate}&end_date=${input.endDate}&base=${input.baseCurrency}&symbols=${input.symbol}");
       return CurrencyRatesModel.fromJson(response.data);
     } catch (e) {
       throw ServerException("$e");
@@ -28,8 +27,9 @@ class RemoteDataSourceImpl implements BaseRemoteDatasource {
   Future<Map<String, CurrencySymbolModel>> getSupportedSymbols() async {
     try {
       final response = await Dio().get("${AppConstants.baseUrl}/symbols");
-      return Map.from(response.data["symbols"]!).map((k, v) => MapEntry<String, CurrencySymbolModel>(k, CurrencySymbolModel.fromJson(v)));
-    } catch (e){
+      return Map.from(response.data["symbols"]!)
+          .map((k, v) => MapEntry<String, CurrencySymbolModel>(k, CurrencySymbolModel.fromJson(v)));
+    } catch (e) {
       print(e);
       throw ServerException("$e");
     }

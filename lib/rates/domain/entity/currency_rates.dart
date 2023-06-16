@@ -6,4 +6,3 @@ class CurrencyRates {
 
   CurrencyRates(this.base, this.startDate, this.endDate, this.rates);
 }
-

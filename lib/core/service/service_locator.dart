@@ -16,11 +16,11 @@ class ServiceLocator {
     // Use Cases
     sl.registerLazySingleton(() => GetDailyHistoricalRatesUseCase(sl()));
     sl.registerLazySingleton(() => GetSupportedSymbolsUseCase(sl()));
+
     // Repository
     sl.registerLazySingleton<BaseRatesRepository>(() => RatesRepositoryImpl(sl()));
 
     // DataSource
-
     sl.registerLazySingleton<BaseRemoteDatasource>(() => RemoteDataSourceImpl());
   }
 }

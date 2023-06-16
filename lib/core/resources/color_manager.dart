@@ -11,11 +11,11 @@ class ColorManager {
 }
 
 class ColorMatrix {
-   static const List<double> darkerImageMatrix = [
+  static const List<double> darkerImageMatrix = [
     // Matrix values for brightness adjustment
-    1, 0, 0, 0, 0,  // Red channel
-    0, 1, 0, 0, 0,  // Green channel
-    0, 0, 1, 0, 0,  // Blue channel
-    0, 0, 0, 10, 0,  // Alpha channel
+    1, 0, 0, 0, 0, // Red channel
+    0, 1, 0, 0, 0, // Green channel
+    0, 0, 1, 0, 0, // Blue channel
+    0, 0, 0, 10, 0, // Alpha channel
   ];
 }
