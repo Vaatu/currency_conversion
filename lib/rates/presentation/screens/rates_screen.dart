@@ -71,21 +71,22 @@ class RatesScreen extends StatelessWidget {
                                 children: [
                                   SelectDateField(
                                       text: state.startDate,
+                                      color:
+                                          !state.startDate.contains("D") ? ColorManager.white : ColorManager.darkWhite,
                                       onPressed: () async {
                                         var pickedData = await showPlatformDatePicker(context);
                                         if (pickedData != null) {
-                                          context.read<RatesBloc>().add(SelectFromDateEvent(pickedData.toString()));
+                                          context.read<RatesBloc>().add(SelectStartDateEvent(pickedData.toString()));
                                         }
-
-                                        //     print(pickedData);
                                       }),
                                   SelectDateField(
                                       text: state.endDate,
+                                      color: !state.endDate.contains("E") ? ColorManager.white : ColorManager.darkWhite,
                                       onPressed: () async {
                                         var pickedData = await showPlatformDatePicker(context);
                                         if (pickedData != null) {
                                           BlocProvider.of<RatesBloc>(context)
-                                              .add(SelectToDateEvent(pickedData.toString()));
+                                              .add(SelectEndDateEvent(pickedData.toString()));
                                         }
                                       }),
                                 ],
@@ -120,7 +121,11 @@ class RatesScreen extends StatelessWidget {
                                         color: ColorManager.white.withOpacity(0.1)),
                                     child: DropdownButton(
                                         value: state.baseCurrency,
-                                        style: getBoldStyle(color: ColorManager.darkWhite),
+                                        dropdownColor: ColorManager.primary,
+                                        style: getBoldStyle(
+                                            color: !state.startDate.contains("D")
+                                                ? ColorManager.white
+                                                : ColorManager.darkWhite),
                                         items: state.symbols.keys
                                             .map((e) => DropdownMenuItem(value: e, child: Text(e)))
                                             .toList(),
@@ -138,7 +143,9 @@ class RatesScreen extends StatelessWidget {
                                         )),
                                   ),
                                   InkWell(
-                                    onTap: () {},
+                                    onTap: () {
+                                      BlocProvider.of<RatesBloc>(context).add(SwitchCurrencyEvent());
+                                    },
                                     child: Image.asset(ImageAssets.switchImage),
                                   ),
                                   Container(
@@ -150,7 +157,10 @@ class RatesScreen extends StatelessWidget {
                                         color: ColorManager.white.withOpacity(0.1)),
                                     child: DropdownButton(
                                         value: state.toCurrency,
-                                        style: getBoldStyle(color: ColorManager.darkWhite),
+                                        style: getBoldStyle(
+                                            color: !state.startDate.contains("D")
+                                                ? ColorManager.white
+                                                : ColorManager.darkWhite),
                                         items: state.symbols.keys
                                             .map((e) => DropdownMenuItem(value: e, child: Text(e)))
                                             .toList(),
@@ -161,6 +171,7 @@ class RatesScreen extends StatelessWidget {
                                         hint: Text(AppStrings.to, style: getMediumStyle(color: ColorManager.darkWhite)),
                                         underline: const SizedBox(),
                                         isExpanded: true,
+                                        dropdownColor: ColorManager.primary,
                                         icon: const Icon(
                                           Icons.keyboard_arrow_down_sharp,
                                           color: ColorManager.darkWhite,
@@ -203,7 +214,7 @@ class RatesScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(28.r), topRight: Radius.circular(28.r))),
                               width: double.infinity,
-                              child: const RatesComponent()),
+                              child: RatesComponent()),
                         )
                       ],
                     )),

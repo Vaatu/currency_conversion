@@ -35,7 +35,7 @@ class CurrencyRateTile extends StatelessWidget {
                 height: 4.h,
               ),
               Text(
-                "1.00 $baseCurrency",
+                "1.00 $baseCurrency = ",
                 style: getLightStyle(color: ColorManager.lightGrey),
               )
             ],

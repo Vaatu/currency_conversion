@@ -13,18 +13,20 @@ class GetDailyHistoricalRatesEvent extends RatesEvent {
   GetDailyHistoricalRatesEvent(this.startDate, this.endDate);
 }
 
+class PaginateDailyHistoricalRatesEvent extends RatesEvent {}
+
 class GetSupportedSymbolsEvent extends RatesEvent {}
 
-class SelectFromDateEvent extends RatesEvent {
-  final String from;
+class SelectStartDateEvent extends RatesEvent {
+  final String startDate;
 
-  SelectFromDateEvent(this.from);
+  SelectStartDateEvent(this.startDate);
 }
 
-class SelectToDateEvent extends RatesEvent {
-  final String to;
+class SelectEndDateEvent extends RatesEvent {
+  final String endDate;
 
-  SelectToDateEvent(this.to);
+  SelectEndDateEvent(this.endDate);
 }
 
 class SelectBaseCurrencyEvent extends RatesEvent {
@@ -38,3 +40,5 @@ class SelectToCurrencyEvent extends RatesEvent {
 
   SelectToCurrencyEvent(this.to);
 }
+
+class SwitchCurrencyEvent extends RatesEvent {}

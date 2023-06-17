@@ -11,6 +11,7 @@ class RatesState {
   final String baseCurrency;
   final String toCurrency;
   final RequestState requestState;
+  final DateTime? nextStartDate;
 
   RatesState(
       {this.symbols = const {},
@@ -19,17 +20,19 @@ class RatesState {
       this.endDate = AppStrings.endDate,
       this.baseCurrency = "",
       this.toCurrency = "",
+      this.nextStartDate,
       this.requestState = RequestState.loading});
 
-  RatesState copyWith({
-    Map<String, Symbol>? symbols,
-    CurrencyRates? rates,
-    String? startDate,
-    String? endDate,
-    String? baseCurrency,
-    String? toCurrency,
-    RequestState? requestState,
-  }) {
+  RatesState copyWith(
+      {Map<String, Symbol>? symbols,
+      CurrencyRates? rates,
+      String? startDate,
+      String? endDate,
+      String? baseCurrency,
+      String? toCurrency,
+      RequestState? requestState,
+      DateTime? nextStartDate,
+      }) {
     return RatesState(
         symbols: symbols ?? this.symbols,
         rates: rates ?? this.rates,
@@ -37,6 +40,7 @@ class RatesState {
         endDate: endDate ?? this.endDate,
         baseCurrency: baseCurrency ?? this.baseCurrency,
         toCurrency: toCurrency ?? this.toCurrency,
-        requestState: requestState ?? this.requestState);
+        requestState: requestState ?? this.requestState,
+        nextStartDate: nextStartDate ?? this.nextStartDate);
   }
 }
