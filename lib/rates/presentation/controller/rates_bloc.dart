@@ -28,7 +28,7 @@ class RatesBloc extends Bloc<RatesEvent, RatesState> {
   FutureOr<void> _getSupportedSymbols(event, emit) async {
     final response = await getSupportedSymbols();
 
-    emit(state.copyWith(symbols: response,baseCurrency: "USD",toCurrency: "EGP" ,requestState: RequestState.empty));
+    emit(state.copyWith(symbols: response, baseCurrency: "USD", toCurrency: "EGP", requestState: RequestState.empty));
   }
 
   FutureOr<void> _getDailyHistoricalRates(GetDailyHistoricalRatesEvent event, Emitter<RatesState> emit) async {
@@ -39,11 +39,8 @@ class RatesBloc extends Bloc<RatesEvent, RatesState> {
       emit(state.copyWith(requestState: RequestState.error));
     } else {
       var currentDate = state.nextStartDate ?? startDate;
-      print("Start: $currentDate, End: $endDate   isNextStateNull: ${state.nextStartDate == null} ");
 
       if (currentDate.isBefore(endDate)) {
-        print("Here");
-
         final nextDate = currentDate.add(const Duration(days: 1));
         final afterTenDays = currentDate.add(const Duration(days: 10));
         var newNextDate;
@@ -96,7 +93,9 @@ class RatesBloc extends Bloc<RatesEvent, RatesState> {
 
     emit(state.copyWith(
         rates: state.rates?.copyWith(rates: rates),
-        endDate: formattedDate, requestState: RequestState.empty, nextStartDate: DateTime.tryParse(state.startDate)));
+        endDate: formattedDate,
+        requestState: RequestState.empty,
+        nextStartDate: DateTime.tryParse(state.startDate)));
   }
 
   FutureOr<void> _selectBaseCurrency(SelectBaseCurrencyEvent event, Emitter<RatesState> emit) {
@@ -105,7 +104,9 @@ class RatesBloc extends Bloc<RatesEvent, RatesState> {
 
     emit(state.copyWith(
         rates: state.rates?.copyWith(rates: rates),
-        baseCurrency: event.from, requestState: RequestState.empty, nextStartDate: DateTime.tryParse(state.startDate)));
+        baseCurrency: event.from,
+        requestState: RequestState.empty,
+        nextStartDate: DateTime.tryParse(state.startDate)));
   }
 
   FutureOr<void> _selectToCurrency(SelectToCurrencyEvent event, Emitter<RatesState> emit) {
@@ -114,7 +115,9 @@ class RatesBloc extends Bloc<RatesEvent, RatesState> {
 
     emit(state.copyWith(
         rates: state.rates?.copyWith(rates: rates),
-        baseCurrency: event.to, requestState: RequestState.empty, nextStartDate: DateTime.tryParse(state.startDate)));
+        baseCurrency: event.to,
+        requestState: RequestState.empty,
+        nextStartDate: DateTime.tryParse(state.startDate)));
   }
 
   FutureOr<void> _switchCurrencyEvent(SwitchCurrencyEvent event, Emitter<RatesState> emit) {
