@@ -13,7 +13,6 @@ class GetDailyHistoricalRatesEvent extends RatesEvent {
   GetDailyHistoricalRatesEvent(this.startDate, this.endDate);
 }
 
-class PaginateDailyHistoricalRatesEvent extends RatesEvent {}
 
 class GetSupportedSymbolsEvent extends RatesEvent {}
 

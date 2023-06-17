@@ -17,7 +17,6 @@ class RatesBloc extends Bloc<RatesEvent, RatesState> {
     on<GetSupportedSymbolsEvent>(_getSupportedSymbols);
 
     on<GetDailyHistoricalRatesEvent>(_getDailyHistoricalRates);
-    on<PaginateDailyHistoricalRatesEvent>(_paginateDailyHistoricalRates);
     on<SelectStartDateEvent>(_selectStartDate);
     on<SelectEndDateEvent>(_selectEndDate);
     on<SelectBaseCurrencyEvent>(_selectBaseCurrency);
@@ -133,6 +132,4 @@ class RatesBloc extends Bloc<RatesEvent, RatesState> {
         requestState: RequestState.empty,
         nextStartDate: DateTime.parse(state.startDate)));
   }
-
-  FutureOr<void> _paginateDailyHistoricalRates(PaginateDailyHistoricalRatesEvent event, Emitter<RatesState> emit) {}
 }
